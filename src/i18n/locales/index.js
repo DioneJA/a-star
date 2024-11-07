@@ -11,8 +11,21 @@ const Locales = {
   ptBr: 'ptBr',
 };
 
+const LocalesOptions = [
+  {
+    value: Locales.enUs,
+    label: 'English',
+    flag: 'usa',
+  },
+  {
+    value: Locales.ptBr,
+    label: 'Português',
+    flag: 'br',
+  },
+];
+
 export {
   messages,
   Locales,
+  LocalesOptions,
 };
-

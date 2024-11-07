@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 // configure a persistence state (save in browser storage)
-import VuexPersistence from 'vuex-persist'
+import VuexPersistence from 'vuex-persist';
 
 // modules
-import locale from './locale'
+import locale from './locale';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage,
@@ -15,7 +15,7 @@ const vuexLocal = new VuexPersistence({
   reducer: state => ({
     locale: state.locale
   }),
-})
+});
 
 export default new Vuex.Store({
   modules: {

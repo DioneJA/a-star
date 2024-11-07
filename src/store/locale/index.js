@@ -4,17 +4,17 @@ const locale = {
   },
   getters: {
     getLanguage(state) {
-      return state.language
+      return state.language;
     },
   },
   mutations: {
     SET_LANGUAGE(state, language) {
-      state.language = language
+      state.language = language;
     },
   },
   actions: {
     setLanguage({ commit }, language) {
-      commit('SET_LANGUAGE', language)
+      commit('SET_LANGUAGE', language);
     },
   },
 };
