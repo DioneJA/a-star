@@ -7,19 +7,41 @@
                 <span class="text-white ml-2">{{ $t('aStarTypes.' + type + '') }}</span>
             </label>
         </div>
-
+        
+        <div v-if="!isMobile" class=" flex-col gap-2 text-white py-4">
+            <div class="flex items-center gap-2">
+                <div style="width: 15px; height: 15px" class="cell destination"></div>
+                <span>{{$t('aStarTypes.destinationInfo')}}</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <div style="width: 15px; height: 15px" class="cell start"></div>
+                <span>{{$t('aStarTypes.startInfo')}}</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <div style="width: 15px; height: 15px" class="cell barrier"></div>
+                <span>{{$t('aStarTypes.barrierInfo')}}</span>
+            </div>
+        </div>
         <div :style="gridStyle">
             <div v-for="(cell, index) in grid" :key="index" :class="['cell', cell.type]"
                 @mousedown="!isMobile && handleMouseDown(index, $event)"
                 @touchstart="isMobile && handleTouchStart(index)"></div>
         </div>
+        <popup
+            :_visible="noPath"
+            :_label="$t('aStarTypes.noPath')"
+            @close="noPath = false"
+        />
     </div>
 </template>
 
 <script>
 export default {
     name: "AStarExample",
-    data() {
+    components: {
+        Popup: () => import("@/components/popup/Popup.vue"),
+    },
+    data: function () {
         return {
             grid: [],
             types: {
@@ -36,9 +58,10 @@ export default {
             },
             isDrawingPath: false,
             selectedType: null,
+            noPath: false,
         };
     },
-    mounted() {
+    mounted: function () {
         this.selectedType = this.types.start;
         this.initGrid();
     },
@@ -107,6 +130,7 @@ export default {
             return new Promise((resolve) => setTimeout(resolve, ms));
         },
         findPath: async function () {
+            this.noPath = false;
             const start = this.grid.findIndex((cell) => cell.type === 'start');
             const destination = this.grid.findIndex((cell) => cell.type === 'destination');
             if (start === null || start === -1 || destination === null || destination === -1) {
@@ -133,7 +157,7 @@ export default {
                     }
                 }
             } else {
-                alert("Nenhum caminho encontrado.");
+                this.noPath = true;
             }
         },
         aStar: function (startIndex, endIndex) {

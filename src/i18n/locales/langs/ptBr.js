@@ -5,8 +5,13 @@ const messages = {
     destination: "Destino",
     barrier: "Barreira",
     empty: "Vazio",
-    path: "Caminho"
-  }
+    path: "Caminho",
+    destinationInfo: "Clique com botão esquerdo do mouse para marcar o destino.",
+    startInfo: "Clique com botão direito do mouse para marcar o começo.",
+    barrierInfo: "Clique com o botão scroll do mouse para marcar/desmarcar as barreiras.",
+    noPath: "Nenhum caminho encontrado!",
+  },
+  close: "Fechar",
 };
 
 export default messages;

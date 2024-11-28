@@ -1,6 +1,9 @@
 # Algoritmo A* (A-Star) - Explicação e Exemplo
 
-Este projeto demonstra o funcionamento do algoritmo A* (A-Star), uma técnica popular para encontrar o caminho mais curto entre dois pontos em um gráfico. A página inclui uma explicação teórica sobre o algoritmo, sua comparação com o algoritmo de Dijkstra, e um exemplo interativo do A* em ação.
+Este projeto demonstra o funcionamento do algoritmo A* (A-Star), uma técnica popular para encontrar o caminho mais curto entre dois pontos em um gráfico.
+
+## Url em produção
+[https://algorithm-a-star.netlify.app/](https://algorithm-a-star.netlify.app/)
 
 ## O que é o A*?
 
